@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>lgmpnj</title>
+</head>
+<body>
+    <script>
+    // alert('hello javascript');
+    class Flower {
+        constructor(type,n) { //构造函数 new 运行
+            this.type = type; //属性
+            this.n = n;
+        }
+    }
+    var xm = {
+        name: '小明',
+        age: 21,
+        favorites: ['代码','看书','打撸'],
+        room: 1114,
+        yz: 10,
+        hometown: '赣州',
+        isSingle: true,
+        sendFlower: function(target) {
+            var flower = new Flower('百合',9);
+            console.log(flower.type,flower.n);
+            target.receiveFlower(this,flower);
+        }
+    }
+    var xh = {
+        name: '小红',
+        age: '18',
+        isGoodMod: false, //心情不好
+        favorites: ['购物','看书'],
+        receiveFlower: function(sender,flower) {
+            if (!this.isGoodMod){
+                console.log('丑拒,老娘心情不好');
+            } else {
+                console.log('哈哈');
+            }
+            console.log(sender, flower);
+        }
+    }
+    var xl = {
+        hometown: '赣州',
+        receiveFlower: function(sender,flower) {
+            // if (sender.name == '小明'){
+            //     console.log('啦啦啦');
+            // } else {
+                //定时器
+                setTimeout(function(){
+                    xh.isGoodMod = true;
+                    xh.receiveFlower(sender,flower);
+                },10000)
+                // xh.receiveFlower(sender,flower);
+            // }
+        }
+    }
+    xm.sendFlower(xl);
+
+    </script>
+</body>
+</html>
