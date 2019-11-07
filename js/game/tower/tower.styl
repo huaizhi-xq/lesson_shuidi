@@ -64,5 +64,26 @@ body
                 background-color #fff
                 border-radius 0.6rem
                 transition width .1s
-                
+
+.landing
+    .action-1
+        position absolute
+        top 0
+        .title
+            width 60%
+        .swing
+            animation sw  2s ease-in-out alternate infinite
+    .action-2
+        position absolute
+        bottom 0.2rem
+        width 100%
+        .star
+            width 65%
+@keyframes sw 
+    0%
+        transform rotate(5deg)
+        transform-origin top center
+    100%
+        transform rotate(-5deg)
+        transform-origin top center
 

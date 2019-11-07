@@ -72,3 +72,61 @@ body {
   border-radius: 0.6rem;
   transition: width 0.1s;
 }
+.landing .action-1 {
+  position: absolute;
+  top: 0;
+}
+.landing .action-1 .title {
+  width: 60%;
+}
+.landing .action-1 .swing {
+  animation: sw 2s ease-in-out alternate infinite;
+}
+.landing .action-2 {
+  position: absolute;
+  bottom: 0.2rem;
+  width: 100%;
+}
+.landing .action-2 .star {
+  width: 65%;
+}
+@-moz-keyframes sw {
+  0% {
+    transform: rotate(5deg);
+    transform-origin: top center;
+  }
+  100% {
+    transform: rotate(-5deg);
+    transform-origin: top center;
+  }
+}
+@-webkit-keyframes sw {
+  0% {
+    transform: rotate(5deg);
+    transform-origin: top center;
+  }
+  100% {
+    transform: rotate(-5deg);
+    transform-origin: top center;
+  }
+}
+@-o-keyframes sw {
+  0% {
+    transform: rotate(5deg);
+    transform-origin: top center;
+  }
+  100% {
+    transform: rotate(-5deg);
+    transform-origin: top center;
+  }
+}
+@keyframes sw {
+  0% {
+    transform: rotate(5deg);
+    transform-origin: top center;
+  }
+  100% {
+    transform: rotate(-5deg);
+    transform-origin: top center;
+  }
+}
