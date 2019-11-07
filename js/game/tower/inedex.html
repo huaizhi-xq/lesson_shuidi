@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>盖楼</title>
+    <link rel="stylesheet" href="./tower.css">
+</head>
+<body>
+    <!-- 画布元素 -->
+    <canvas id="canvas" class="hide"></canvas>
+    <div class="content">
+        <!-- 加载页 -->
+        <div class="loading hide">
+            <div class="main">
+                <img src="./assets/main-loading.gif" alt="" class="">
+                <!-- .progress>.title+.bar>.sub>.percent -->
+                <div class="progress">
+                    <div class="title">0%</div>
+                    <div class="bar">
+                        <div class="sub">
+                            <div class="percent"></div>
+                        </div>
+                        <div class="text">加载中</div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <script>
+    window.onload = function () {
+        // document.getElementById('canvas').style.display = 'block';
+        // document.getElementById('canvas').classList.remove('hide');
+
+    }
+    </script>
+</body>
+</html>
