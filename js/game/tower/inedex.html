@@ -25,18 +25,45 @@
                         <div class="text">加载中</div>
                     </div>
                 </div>
+
             </div>
         </div>  
-    </div>
-    <!-- 开始游戏 -->
-    <div class="landing">
-        <div class="action-1">
-            <img src="./assets/main-index-title.png" alt="" class="title swing">
+        <!-- 开始游戏 -->
+        <div class="landing ">
+            <div class="action-1">
+                <img src="./assets/main-index-title.png" alt="" class="title swing">
+            </div>
+            <div class="action-2">
+                <img src="./assets/main-index-start.png" alt="" id="star" class="star">
+            </div>
         </div>
-        <div class="action-2">
-            <img src="./assets/main-index-start.png" alt="" id="star" class="star">
+        <!--  -->
+        <div class="modal hide" id="modal ">
+            <div class="mask"></div>
+            <div class="js-modal-content modal-content">
+                <div class="mian">
+                    <div class="container"><img src="./assets/main-modal-bg.png" class="bg">
+                    <div class="modal-main">
+                        <div class="js-modal-card " id="over-modal">
+                            <img src="./assets/main-modal-over.png" class="over-img">
+                            <div class="over-score font-wenxue" id="score">250</div>
+                            <div id="voer-zero" class="">
+                                <div class="tip"><p>再来一次吧！</p>
+                                    <img
+                                            src="./assets/main-modal-again-b.png"
+                                            class="over-button-b js-reload"><img
+                                            src="./assets/main-modal-invite-b.png"
+                                            class="over-button-b js-invite"></div>
+                                </div>   
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            
         </div>
     </div>
+    
     <script>
     window.onload = function () {
         // document.getElementById('canvas').style.display = 'block';
