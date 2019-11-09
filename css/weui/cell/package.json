@@ -1,0 +1,14 @@
+{
+  "name": "cell",
+  "version": "1.0.0",
+  "description": "- 界面的宏观视角\r   结构>组件(cell)\r   组件：界面构成的真正基础,拼积木一样来搭页面\r   结构的套路\r   .weui-cell 开启一个组件\r     .weui-cell__hd Element\r     .weio-cell__bd\r     .weui-cell__ft\r   bd + bd + ft\r   __ 子元素关系 \r   BEM Block Element Modifier",
+  "main": "index.js",
+  "scripts": {
+    "dev": "live-server",
+    "styl": "stylus -w cell.styl -o cell.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
