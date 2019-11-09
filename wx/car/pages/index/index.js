@@ -24,6 +24,19 @@ Page({
         "image": "https://resources.ninghao.net/landrover/discovery-sport-1.jpg"
       }
     ],
+  },
+  testDrive() {
+    console.log('试驾在此处理');
+  },
+  readMore (event) {
+    //跳转到详情页
+    let id = event.target.dataset.id;
+    console.log(id);
+    wx.navigateTo({
+      url: '/pages/vehicles/show?id=' + id,
+      
+
+    })
   }
 })
 

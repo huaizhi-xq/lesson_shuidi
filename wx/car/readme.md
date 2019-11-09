@@ -24,3 +24,10 @@
           
       }
   })
+
+
+- 小程序内置得编辑器很好用
+  pages/index/index.wxml|wxss|js|json
+  把应用连接起来，
+  wx.navigateTo  跳转
+- app.wxss app.json app.js 将作用于全局
