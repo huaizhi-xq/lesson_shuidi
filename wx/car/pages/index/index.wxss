@@ -1,0 +1,4 @@
+/* index.wxss */
+.section{
+  height: 100vh;
+}
