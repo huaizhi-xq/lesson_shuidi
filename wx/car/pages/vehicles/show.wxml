@@ -1,6 +1,6 @@
 
 <view class="section">
-  <view class="card">
+  <view class="card cover"> 
     <image src="{{ entity.image }}" mode="aspectFill" />
     <view class="content">
       <view class="sub-header">
