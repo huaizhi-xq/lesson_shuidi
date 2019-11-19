@@ -17,3 +17,6 @@
 - 使用 wx:for-item 可以指定数组当前元素的变量名，
   使用 wx:for-index 可以指定数组当前下标的变量名：
   {{item.}}
+
+  onReachBottom() 触底
+  
