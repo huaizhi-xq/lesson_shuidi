@@ -67,6 +67,11 @@ Page({
     console.log('onload');
   },
   onReachBottom() {
-    console.log('触底了');
+    // console.log('触底了');
+    const data = [...this.data.entities,
+      ...this.data.entities];
+    this.setData({
+      entities: data
+    })
   }
 })
