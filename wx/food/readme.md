@@ -11,7 +11,7 @@
   css
 
 - app.wxss 全局的样式 框架
-@import "styles/weui.css"
+  @import "styles/weui.css"
   app.json
 
 - 使用 wx:for-item 可以指定数组当前元素的变量名，

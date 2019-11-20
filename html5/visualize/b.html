@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  canvas {
+    border: 1px solid #000;
+  }
+  </style>
+</head>
+<body>
+  <canvas id="myCanvas"></canvas>
+  <script>
+    const canvas = document.getElementById('myCanvas');
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'red';
+    ctx.font = "50px Verdana";
+    let i = 500;
+    function animation() {
+    requestAnimationFrame(function() {
+      // console.log('----');
+      ctx.clearRect(0,0,300,150);
+      ctx.fillText(i--,150,75);
+      if (i >= 0)
+        animation();//递归
+    })
+    }
+    animation();
+    // canvas.style.width = '50vw';
+    // canvas.style.height = '50vh';
+    // canvas.width = window.innerWidth;
+    // canvas.width = '50';
+    // canvas.height = window.innerHeight;
+
+  </script>
+</body>
+</html>
