@@ -96,7 +96,13 @@
         console.log(dataArray);
         for (var i = 0, x = 0; i < bufferLength; i++) {
           barHeight = dataArray[i];
-          ctx.fillStyle = "green";
+          var r = barHeight + 25 * (i / bufferLength);
+              var g = 250 * (i / bufferLength);
+              // console.log(i);
+              var b = 50;
+              // console.log("rgb(" + r + "," + g + "," + b + ")");
+              ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+          // ctx.fillStyle = "rgba(Math.random*200,Math.random*200,Math.random*200)";
           ctx.fillRect(x,HEIGHT - barHeight,barWidth, barHeight);
           x += barWidth + 2;
         }
