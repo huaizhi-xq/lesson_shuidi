@@ -5,3 +5,8 @@ git checkout xxx 切换分支
 git branch 查看所有分支
 git status 查看当前状态
 git add . 添加到暂存区
+git merge xxx 添加xxx分支到主分支mater
+git checkout -b fix-001 创建并切换到fix-001分支
+
+
+bug fixed
