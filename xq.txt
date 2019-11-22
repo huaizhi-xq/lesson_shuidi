@@ -7,6 +7,7 @@ git status 查看当前状态
 git add . 添加到暂存区
 git merge xxx 添加xxx分支到主分支mater
 git checkout -b fix-001 创建并切换到fix-001分支
-
+git branch -d xxx  删除xxx分支
+git push -u origin xxx 把xxx分支推上去
 
 bug fixed
