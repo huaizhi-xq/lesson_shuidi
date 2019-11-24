@@ -13,8 +13,8 @@ MinStack.prototype.push = function(x) {
   return this.stack.push(x);
 }
 MinStack.prototype.pop = function() {
-  // let i = this.stack.pop();
-  // if (i === this.min) {
+  // var i = this.stack.pop();
+  // if (i == this.min) {
   //   this.min = this.stack[0];
   //   for (var j = 1; j < this.stack.length; j += 1) {
   //     if(this.min > this.stack[j]) {
@@ -26,8 +26,8 @@ MinStack.prototype.pop = function() {
     return 0
     let s = this.stack.pop()
     if(this.min === s){
-    console.log(...this.stack);
-    this.min = Math.min(...this.stack);  //所有的元素
+    // console.log(...this.stack);  //所有的元素
+    this.min = Math.min(...this.stack);  
     }
 }
 MinStack.prototype.top = function() {
