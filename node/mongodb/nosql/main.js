@@ -29,7 +29,9 @@ app.get('/', (req, res) => {
         items: result
       }, function(err, data) {
         res.end(data);
-      })
+      });
     });
+
+ 
 })
 app.listen(3000, console.log('启动成功...'));

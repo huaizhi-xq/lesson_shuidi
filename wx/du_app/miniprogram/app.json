@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/userConsole/userConsole",
+    "pages/storageConsole/storageConsole",
+    "pages/databaseGuide/databaseGuide",
+    "pages/addFunction/addFunction",
+    "pages/deployFunctions/deployFunctions",
+    "pages/chooseLib/chooseLib",
+    "pages/openapi/openapi",
+    "pages/openapi/serverapi/serverapi",
+    "pages/openapi/callback/callback",
+    "pages/openapi/cloudid/cloudid",
+    "pages/im/im",
+    "pages/im/room/room",
+    "pages/my/my",
+    "pages/inquire/inquire"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#000000",
+    "borderStyle": "white",
+    "backgroundColor": "#ededed",
+    "list": [
+      {
+        "text": "购买",
+        "pagePath": "pages/index/index",
+        "iconPath": "assest/icons/buy2.png",
+        "selectedIconPath": "assest/icons/buy1.png"
+      },
+      {
+        "text": "鉴别查询",
+        "pagePath": "pages/inquire/inquire",
+        "iconPath": "assest/icons/cha2.png",
+        "selectedIconPath": "assest/icons/cha1.png"
+      },
+      {
+        "text": "我",
+        "pagePath": "pages/my/my",
+        "iconPath": "assest/icons/w2.png",
+        "selectedIconPath": "assest/icons/w1.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}
