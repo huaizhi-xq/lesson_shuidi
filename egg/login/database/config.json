@@ -1,0 +1,10 @@
+{
+  "development": {
+    "username": "root",
+    "password": "xq27892789",
+    "database": "xq_instgram",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  }
+}
