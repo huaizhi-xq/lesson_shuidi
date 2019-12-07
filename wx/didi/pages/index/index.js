@@ -9,11 +9,11 @@ Page({
         name: '专车'
       },
       {
-        id: 1,
+        id: 2,
         name: '快车'
       },
     ],
-    currentTab: 2
+    currentTab: 0
   },
   showUser() {
     // 用户如果点击了授权，就显示用户信息，如果没有则取登陆
