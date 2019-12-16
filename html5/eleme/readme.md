@@ -17,4 +17,17 @@
 
 
 
-  
+- inline-block  
+  inline 没有设置宽高的能力  兄弟间相安无事
+  block 兄弟间会换行
+  俩列式布局 inline-block 副作用兄弟间会产生间隙 浏览器实现inline-block的天坑 换行\n  font-size
+  父元素font-size 0
+  换行元素首尾相连 影响结构的可读性
+
+- stylus 向css提供了函数功能
+  利用返回值的叫函数s
+  要利用css代码 完成了css模块化 mixin 混合
+
+- 图片， 手机的屏幕像素不太一样
+  @media 条件 (-webkit-min-deivice-pixel-ration:3)
+  图片的命名 ...@2x.png ...@3x.png
