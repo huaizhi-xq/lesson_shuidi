@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <div>这个家伙很懒，什么都没留下</div> -->
+    <!-- 双击一下，文字，变成输入框 立即输入 回车。 -->
+    <!-- - 事件
+    - 状态的改变 DOM 
+    - 本地存储
+    - 将这些整合起来 面向对象来封装处理 
+    -->
+    <div id="profile"></div>
+</body>
+<script>
+    // // 在线编辑类 封装他内部的实现细节
+    // function EditInPlace(id, parent, value) {
+    //     this.id = id;
+    //     this.value = value || 'default value';
+    //     this.parentElement = document.getElementById('profile');
+    //     this.createElements() //把节点显示到页面上
+    //     this.attachEvents();
+    // }
+    // EditInPlace.prototype.convertToEdit = function() {
+    //     this.staticElement.style.display = 'none';
+    //     this.fieldElement.style.display = 'inline';
+    //     this.savButton.style.display = 'inline';
+    //     this.cancelButton.style.display = 'inline';
+    // }
+    // EditInPlace.prototype.convertToText = function() {
+    //         this.staticElement.style.display = 'inline';
+    //         this.fieldElement.style.display = 'none';
+    //         this.savButton.style.display = 'none';
+    //         this.cancelButton.style.display = 'none';
+    //     }
+    //     // 构造函数 
+    // EditInPlace.prototype.createElements = function() {
+    //     console.log('显示文本');
+    //     this.containerElement = document.createElement('div');
+    //     this.staticElement = document.createElement('span');
+    //     this.staticElement.innerText = this.value;
+    //     this.containerElement.appendChild(this.staticElement);
+
+    //     this.fieldElement = document.createElement('input');
+    //     this.fieldElement.type = 'text';
+    //     this.fieldElement.value = this.value;
+    //     this.fieldElement.style.display = 'none';
+    //     this.containerElement.appendChild(this.fieldElement);
+
+    //     this.savButton = document.createElement('input');
+    //     this.savButton.type = 'button';
+    //     this.savButton.value = 'save';
+    //     this.savButton.style.display = 'none';
+    //     this.cancelButton = document.createElement('input');
+    //     this.cancelButton.type = "button";
+    //     this.cancelButton.value = "cancel";
+    //     this.cancelButton.style.display = 'none';
+    //     this.containerElement.appendChild(this.savButton);
+    //     this.containerElement.appendChild(this.cancelButton);
+
+    //     this.parentElement.appendChild(this.containerElement);
+    // }
+    // EditInPlace.prototype.attachEvents = function() {
+    //     this.cancelButton.addEventListener('click', () => {
+    //         this.staticElement.innerText = this.value;
+    //         this.convertToText();
+
+    //     })
+    //     this.savButton.addEventListener('click', () => {
+    //             var text = this.fieldElement.value;
+    //             this.value = text;
+    //             window.localStorage.setItem('profile', text);
+
+    //             this.staticElement.innerText = text;
+    //             this.convertToText();
+    //         })
+    //         // this 指向实例过后的对象
+    //         // var that = this;
+    //     this.staticElement.addEventListener('click', () => {
+    //         // console.log(this);
+    //         this.convertToEdit();
+    //     }, false)
+    // }
+
+    function EditInPlace(id, parent, value) {}
+
+    EditInPlace.prototype = {
+        createElement() {}, //创建结点
+        attachEvents() {}, //管理所有事件
+        convertToText() {},
+        convertToEdit() {},
+        save() {},
+        setValue(value) {
+            this.value = value;
+            this.staticElement.innerText = value;
+            localStorage.setItem('profile', value);
+        },
+        cancel() {},
+    }
+
+    window.onload = function() {
+            var profile = localStorage.getItem('profile');
+            var profileEditor = new EditInPlace('titleClassical', 'profile', profile);
+        }
+        // var profileEditor = new EditInPlace('titleClassical', 'profile', '这个家伙很懒，什么都没有留下');
+</script>
+
+</html>
