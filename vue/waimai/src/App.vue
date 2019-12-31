@@ -13,7 +13,7 @@
       </div>
     </div>
     <router-view />
-    <v-footer/>
+   
   </div>
 </template>
 
@@ -53,6 +53,7 @@ export default {
 *
   margin 0
   padding 0
+
 .tab
   display flex
   width 100%
