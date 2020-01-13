@@ -48,3 +48,17 @@
       3. 重构项目的文件夹结构 src目录放置源代码文件 dist目录放置构建后文件
       4. 在gulpfile.js文件中编写任务
       5. 在命令行工具中执行gulp任务
+    gulp插件
+      看文档(下载 引入 调用)
+  6. 第三方依赖
+    项目依赖
+    开发依赖 (dev)
+    package.json
+    package-lock.json (锁定包的版本, 加快下载速度)
+- 模块加载机制
+  1. 规则
+    require 查找 完整路径
+    后缀省略 先找js文件再找同名js文件夹
+    找文件夹中index.js
+    找package.js main
+    模块没有找到
