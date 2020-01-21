@@ -22,8 +22,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}))
 // 配置session
 app.use(session({
+  cookie: {
+    maxAge: 24 * 60 * 60 * 1000
+  },
   resave: false, //添加 resave 选项
-  saveUninitialized: true, //添加 saveUninitialized 选项
+  saveUninitialized: false, //添加 saveUninitialized 选项
   secret: 'secret key'
 }))
 

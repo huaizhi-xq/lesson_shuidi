@@ -19,14 +19,22 @@ module.exports = async (req, res) => {
     if (password == user.password) {
       // 登陆成功
       req.session.username = user.username;
+      req.session.role = user.role;
       // console.log(req.session.username )
       // req.session.id = user._id;
       // console.log(user._id)
       // console.log(req.session.id)
       // res.send('登陆成功');
       req.app.locals.userInfo = user;
-      // 重定向到用户列表页面
-      res.redirect('/admin/user');
+      // 对用户角色进行判断
+      if (user.role == 'admin') {
+        // 重定向到用户列表页面
+        res.redirect('/admin/user');
+      } else {
+        // 重定向到博客首页
+        res.redirect('/home/');
+      }
+
     } else {
     // 没有查询到
     res.status(400).render('admin/error', {msg: '邮箱地址或密码错误'})
