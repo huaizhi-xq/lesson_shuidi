@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="/assets/bootstrap/dist/css/bootstrap.min.css">
+	<style type="text/css">
+		.container {
+			padding-top: 60px;
+		}
+		.padding {
+			padding: 5px 0 20px 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="form-group">
+			<label>请选择文件</label>
+			<input type="file" id="file">
+			<div class="padding" id="box">
+				<!--<img src="" class="img-rounded img-responsive">-->
+			</div>
+			<div class="progress">
+				<div class="progress-bar" style="width: 0%;" id="bar">0%</div>
+			</div>
+		</div>
+	</div>
+  <script>
+    var file = document.getElementById('file');
+    var bar = document.getElementById('bar');
+    var box = document.getElementById('box');
+    file.onchange = function() {
+      // 创建空的formData表单对象
+      var formData = new FormData();
+      // 将用户选择的文件追加到formdata表单对象中
+      formData.append('attrName', this.files[0]);
+      // 创建ajax对象
+      var xhr = new XMLHttpRequest();
+      xhr.open('post', 'http://localhost:3000/upload');
+      // 文件上传的过程持续触发
+      xhr.upload.onprogress = function(ev) {
+        // ev.loaded 文件已经上传了多少
+        // ev.total 上传文件的总大小
+        var result = (ev.loaded / ev.total) * 100 + '%';
+        // 设置进度条宽度
+        bar.style.width = result;
+        // 将百分比显示在进度条中
+        bar.innerHTML = result;
+      }
+      xhr.send(formData);
+      xhr.onload = function() {
+        if (xhr.status == 200) {
+          var result = JSON.parse(xhr.responseText);
+          // 动态创建img标签
+          var img = document.createElement('img');
+          img.src = result.path;
+          img.onload = function() {
+            // 将图片显示在页面当中
+            box.appendChild(img);
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>

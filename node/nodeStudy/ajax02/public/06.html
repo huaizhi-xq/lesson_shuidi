@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 创建html表单 -->
+  <form id="form">
+    <input type="text" name="username" id="">
+    <input type="password" name="password" id="">
+    <input type="button" value="提交" id="btn">
+  </form>
+  <script>
+    var btn = document.getElementById('btn');
+    var form = document.getElementById('form');
+    btn.onclick = function() {
+      // 将普通的html表单转换为表单对象
+      var formData = new FormData(form);
+
+      /*
+        get('key') 获取表单对象属性的值
+        set('key', 'value') 设置表单对象属性的值
+        delete('key') 删除表单对象中属性的值
+        append('key', 'value') 向表单对象追加值
+        set append的区别:
+          在属性名已经存在的情况下，set会覆盖，append会保留俩个值
+      */
+
+      console.log(formData.get('username'));
+      formData.set('username', 'itxx');
+      formData.append('username', 'ityy');
+      // 属性不存在 则创建这个表单属性
+      formData.set('age', 100);
+      formData.delete('password')
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('post', 'http://localhost:3000/formData');
+      xhr.send(formData);
+      xhr.onload = function() {
+        if (xhr.status == 200) {
+          console.log(xhr.responseText);
+        }
+      }
+
+      var f = new FormData();
+      f.append('sex', '男');
+      console.log(f.get('sex'));
+
+    }
+  </script>
+</body>
+</html>

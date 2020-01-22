@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>省市区</title>
+	<link rel="stylesheet" href="/assets/bootstrap/dist/css/bootstrap.min.css">
+	<style type="text/css">
+		.container {
+			padding-top: 150px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="form-inline">
+			<div class="form-group">
+				<select class="form-control" id="province">
+
+        </select>
+			</div>
+			<div class="form-group">
+				<select class="form-control" id="city">
+					<option>请选择城市</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<select class="form-control" id="area">
+					<option>请选择县城</option>
+				</select>
+			</div>
+		</div>
+  </div>
+  <script src="/js/ajax.js"></script>
+  <script src="/js/template-web.js"></script>
+  <script type="text/html" id="provinceTpl">
+    <option>请选择省份</option>
+    {{each province}}
+      <option value="{{$value.id}}">{{$value.name}}</option>
+    {{/each}}
+  </script>
+  <script type="text/html" id="cityTpl">
+    <option>请选择城市</option>
+    {{each city}}
+      <option value="{{$value.id}}">{{$value.name}}</option>
+    {{/each}}
+  </script>
+  <script type="text/html" id="areaTpl">
+    <option>请选择县城</option>
+    {{each area}}
+      <option value="{{$value.id}}">{{$value.name}}</option>
+    {{/each}}
+  </script>
+  <script>
+    // 获取下拉框元素
+    var province = document.getElementById('province');
+    var city = document.getElementById('city');
+    var area = document.getElementById('area');
+
+    // 获取省份信息
+    ajax({
+      url: 'http://localhost:3000/province',
+      success: function(data) {
+        // 将服务器端返回的数据和html进行拼接
+        var html = template('provinceTpl', {province: data});
+        // 将拼接好的html字符串显示在页面中
+        province.innerHTML = html;
+      }
+    })
+
+    // 为省份下拉框添加值改变事件
+    province.onchange = function() {
+      // 获取省份id
+      var pid = this.value;
+
+      // 清空县城下拉框中选中的数据
+              
+      var html = template('areaTpl', {area: []});
+      area.innerHTML = html;
+
+      ajax({
+        url: '/cities',
+        data: {
+          id: pid
+        },
+        success: function(data) {
+        // 将服务器端返回的数据和html进行拼接
+        var html = template('cityTpl', {city: data});
+        // 将拼接好的html字符串显示在页面中
+        city.innerHTML = html;
+        }
+      })
+    }
+    city.onchange = function() {
+      var cid = this.value;
+      ajax({
+        url: '/areas',
+        data: {
+          id: cid
+        },
+        success: function(data) {
+        // 将服务器端返回的数据和html进行拼接
+        var html = template('areaTpl', {area: data});
+        // 将拼接好的html字符串显示在页面中
+        area.innerHTML = html;
+        }
+      })
+    }
+  </script>
+</body>
+</html>
