@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">发送请求</button>
+  <script src="/js/jquery.min.js"></script>
+  <script>
+    $('#btn').on('click', function() {
+      var param = {name: 'zs', age: 18}
+      $.ajax({
+        type: 'post',
+        url: '/user',
+        // 向服务器端发送请求参数   name=zs&age=100
+        // data: {
+        //   name: 'zs',
+        //   age: 100
+        // },
+        // data: 'name=zs&age=100',
+        data: JSON.stringify(param),
+        // 指定参数的格式类型
+        contentType: 'application/json',
+        success: function(respoonse) {
+          // 方法内部会自动将json字符串转换为json对象
+          console.log(respoonse);
+        },
+        error: function(xhr) {
+          console.log(xhr);
+        }
+      })
+    })
+  </script>
+</body>
+</html>

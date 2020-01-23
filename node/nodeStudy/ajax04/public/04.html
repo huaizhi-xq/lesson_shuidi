@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>serialize方法说明</title>
+</head>
+<body>
+	<form id="form">
+		<input type="text" name="username">
+		<input type="password" name="password">
+		<input type="submit" value="提交">
+	</form>
+  <script src="/js/jquery.min.js"></script>
+  <script>
+    $('#form').on('submit', function() {
+      // 将表单内容拼接成为字符串类型
+      // var params = $('#form').serialize();
+      // console.log(params);
+      serializeObject($(this));
+      return false;
+    })
+    // 将表单中用户输入的内容转换为对象类型
+    function serializeObject(obj) {
+      // 处理结果对象
+      var result = {};
+      // 转换为数组， 数组中每一项是对象
+      var params = obj.serializeArray();
+      // 循环数组 将数组转换为对象类型
+      $.each(params, function(index, value) {
+        result[value.name] = value.value;
+      })
+      // 将处理结果返回到函数外部
+      return result;
+    }
+  </script>
+</body>
+</html>
