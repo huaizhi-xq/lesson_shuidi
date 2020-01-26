@@ -28,13 +28,14 @@
       <!-- <div class="alert alert-danger">
         <strong>错误！</strong>发生XXX错误
       </div> -->
-      <form class="form-horizontal">
+      <form class="form-horizontal" id="settingsForm"> 
         <div class="form-group">
           <label for="site_logo" class="col-sm-2 control-label">网站图标</label>
           <div class="col-sm-6">
             <label class="form-image">
-              <input type="file">
-              <img src="../assets/img/logo.png">
+              <input type="file" id="logo">
+              <input type="hidden" name="logo" id="hiddenLogo">
+              <img src="../assets/img/logo.png" id="preview">
               <i class="mask fa fa-upload"></i>
             </label>
           </div>
@@ -42,17 +43,17 @@
         <div class="form-group">
           <label class="col-sm-2 control-label">站点名称</label>
           <div class="col-sm-6">
-            <input class="form-control" type="text" placeholder="站点名称">
+            <input class="form-control" type="text" placeholder="站点名称" name="title">
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-2 control-label">评论</label>
           <div class="col-sm-6">
             <div class="checkbox">
-              <label><input type="checkbox" checked>开启评论功能</label>
+              <label><input type="checkbox" checked name="comment" value="true">开启评论功能</label>
             </div>
             <div class="checkbox">
-              <label><input type="checkbox" checked>评论必须经人工批准</label>
+              <label><input type="checkbox" checked name="review" value="true">评论必须经人工批准</label>
             </div>
           </div>
         </div>
@@ -104,6 +105,8 @@
 
   <script src="../assets/vendors/jquery/jquery.js"></script>
   <script src="../assets/vendors/bootstrap/js/bootstrap.js"></script>
+  <script src="../assets/js/settings.js"></script>
+  <script src="../assets/vendors/art-template/template-web.js"></script>
   <script>NProgress.done()</script>
 </body>
 </html>
