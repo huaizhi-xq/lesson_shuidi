@@ -13,8 +13,8 @@ $.ajax({
           type: 'get',
           url: '/comments/count',
           success: function(responseCom) {
-            console.log(responseCate)
-            console.log(responseCom)
+            // console.log(responseCate)
+            // console.log(responseCom)
             var html = template('indexTpl',{
               post: responsePost,
               cate: responseCate,

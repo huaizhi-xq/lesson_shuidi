@@ -48,7 +48,13 @@
         },
         success: function(response) {
           // 登陆成功 跳转到数据管理的首页
-          location.href = 'index.html'
+          // 判断用户
+          if (response.role == 'admin') {
+            location.href = '/admin/index.html'
+          } else {
+            location.href = '/index.html'
+          }
+          
         },
         error: function(err) {
           // 登陆失败
