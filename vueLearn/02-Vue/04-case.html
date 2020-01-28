@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- vdom会复用已经存在的元素，而不是创建新的元素 -->
+  <!-- 给input添加key 并且保证key不同就可以解决 -->
+  <div id="app">
+    <span v-if="isUser">
+      <label for=""> qq登陆</label>
+      <input type="text" name="" id="" placeholder="qq账号" key="qq">
+    </span>
+    <span v-else>
+      <label for="">邮箱登陆</label>
+      <input type="text" name="" id="" placeholder="邮箱账号" key="email">
+    </span>
+    <button @click="isUser = !isUser">切换类型</button>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        isUser: true
+      }
+    })
+  </script>
+</body>
+</html>

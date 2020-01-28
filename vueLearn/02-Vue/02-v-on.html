@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 参数传递 获取浏览器参数event -->
+    <button @click="btnClick('abc', $event)">按钮</button>
+    <!-- 1. .stop 阻止事件冒泡 -->
+    <div @click="divClick">
+      aaa
+      <button @click.stop="btn1Click">按钮1</button>
+    </div>
+    <!-- 2. .prevent 阻止默认提交-->
+    <form action="baidu">
+      <input type="submit" value="提交" @click.prevent="subClick">
+    </form>
+    <!-- 3. 监听键帽的点击 -->
+    <input type="text" @keyup.13="keyUp">
+    <!-- 4. once -->
+    <button @click.once="btn3Click">按钮3</button>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+
+      },
+      methods: {
+        btnClick(abc, event) {
+          console.log(abc + '--' + event)
+        },
+        btn1Click() {
+          console.log('btn1Click');
+        },
+        divClick() {
+          console.log('divClick');
+        },
+        subClick() {
+          console.log('subClick');
+        },
+        keyUp() {
+          console.log('keyUp');
+        },
+        btn3Click() {
+          console.log('btn3Click');
+        }
+      },
+    })
+  </script>
+</body>
+</html>

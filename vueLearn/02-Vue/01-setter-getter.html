@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- methods -->
+    <p>{{getFull()}}</p>
+    <p>{{getFull()}}</p>
+    <!-- 计算属性 -->
+    <p>{{full}}</p>
+    <p>{{full}}</p>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        a: 'A',
+        b: 'B',
+  
+      },
+      //计算属性一般没有set方法，只读属性
+      computed: { 
+        full: {
+          // set: function(newValue) {
+          //   const temp = newValue.split(' ');
+          //   this.a = temp[0];
+          //   this.b = temp[1];
+          // },
+          get: function() {
+            console.log('full');
+            return this.a + ' ' + this.b
+          }
+        },
+        // 简写  调用不用()
+        // full: function() {
+        //   return this.a + ' ' + this.b
+        // }
+      
+      },
+      methods: {
+        getFull: function() {
+          console.log('getFull');
+          return this.a + ' ' + this.b
+        }
+      }
+    })
+  </script>
+</body>
+</html>

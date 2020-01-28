@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 双向绑定 -->
+    <!-- <input type="text" v-model="message">
+    <p>{{message}}</p> -->
+
+    <!-- 原理 -->
+    <!-- <input type="text" :value="message" @input="valueChange"> -->
+    <!-- <input type="text" :value="message" @input="message = $event.target.value">
+    <p>{{message}}</p> -->
+
+    <!-- 结合radio -->
+    <!-- <label for="male">
+      <input type="radio"  id="male" value="男" v-model="sex">男
+    </label>
+    <label for="female">
+      <input type="radio"  id="female" value="女" v-model="sex">女
+    </label>
+    <h2>你选择的性别:{{sex}}</h2> -->
+
+    <!-- 结合checkbox 单选框 -->
+    <!-- <label for="agree">
+      <input type="checkbox" name="" id="agree" v-model="isAgree">同意协议
+    </label>
+    <h3>你选择的是: {{isAgree}}</h3>
+    <button :disabled="!isAgree">下一步</button> -->
+    <!-- 结合checkbox 多选框 -->
+    <!-- <input type="checkbox" value="篮球" v-model="hobbies">篮球
+    <input type="checkbox" value="足球" v-model="hobbies">足球
+    <input type="checkbox" value="羽毛球" v-model="hobbies">羽毛球
+    <input type="checkbox" value="乒乓球" v-model="hobbies">乒乓球
+    <h3>你的爱好是: {{hobbies}}</h3> -->
+
+    <!-- 结合select 选择一个 -->
+    <!-- <select v-model="fruit">
+      <option value="苹果">苹果</option>
+      <option value="香蕉">香蕉</option>
+      <option value="榴莲">榴莲</option>
+      <option value="葡萄">葡萄</option>
+    </select>
+    <h3>你选择的是: {{fruit}}</h3> -->
+    <!-- 结合select 选择多个 -->
+    <!-- <select v-model="fruits" multiple>
+      <option value="苹果">苹果</option>
+      <option value="香蕉">香蕉</option>
+      <option value="榴莲">榴莲</option>
+      <option value="葡萄">葡萄</option>
+    </select>
+    <h3>你选择的是: {{fruits}}</h3> -->
+
+    <!-- 值绑定(:value) 动态给value的赋值-->
+    <!-- <label v-for="item in originHobbies" :for="item">
+      <input type="checkbox" :id="item" :value="item" v-model="hobbies">{{item}}
+    </label>
+    <h3>你的爱好: {{hobbies}}</h3> -->
+
+    <!-- 修饰符 -->
+    <!-- 1. lazy 敲回车或者失去焦点再绑定-->
+    <input type="text" v-model.lazy="message">
+    <h2>{{message}}</h2>
+    <!-- 2. number 默认绑定的是string类型 需要number的时候用-->
+    <input type="number" v-model.number="age">
+    <h2>{{age}}--{{typeof age}}</h2>
+    <!-- 3. trim  去除空格-->
+    <input type="text" v-model="text">
+    <h2>你输入的内容是: {{text}}</h2>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        
+        message: '哈哈哈',
+        sex: '男',
+        isAgree: false,
+        hobbies: [],
+        fruit: '榴莲',
+        fruits: [],
+        originHobbies: ['睡觉', '打游戏','敲代码','看电影'],
+        age: 18,
+        text: '',
+      },
+      methods: {
+        valueChange(event) {
+          // console.log(event)
+          this.message = event.target.value
+        }
+      }
+    })
+  </script>
+</body>
+</html>
