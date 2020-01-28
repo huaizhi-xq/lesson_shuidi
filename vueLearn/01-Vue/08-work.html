@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <!-- 点击列表中的哪一项，那么该项就变为红色· -->
+  <div id="app">
+    <ul>
+      <!-- 判断 -->
+      <li v-for="(item, index) in movies" :class="{active: currentIndex == index}" @click="click(index)">
+        {{item}}
+      </li>
+    </ul>
+   
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        movies: ['海王', '海尔兄弟', '火影忍者', '进击的巨人'],
+        // isActive: false
+        // 记录状态
+        currentIndex: 0
+      },
+      methods: {
+        // getClass: function(index) {
+        //   return {active: this.isActive}
+        // },
+        click: function(index) {
+        
+          // this.isActive = !this.isActive;
+          this.currentIndex = index;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

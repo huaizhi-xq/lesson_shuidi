@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- 错误 -->
+    <!-- <img src="{{imgUrl}}" alt=""> -->
+    <!-- <img v-bind:src="imgUrl" alt=""> -->
+    <!-- <img :src="imgUrl" alt=""> -->
+    <!-- 对象语法 -->
+    <h2 class="title" :class="{active: isActive}">{{message}}</h2>
+    <h2 class="title" :class="getClasses()">{{message}}</h2>
+    <button @click="btnClick">按钮</button>
+    <!-- 数组语法 -->
+    <h2 :class="[active, line]">啊啊</h2>
+
+    <!-- 绑定style对象语法  ''当字符串 不加就当变量-->
+    <h2 :style="{fontSize: '50px'}">{{message}}</h2>
+    <h2 :style="{fontSize: finalSize}">{{message}}</h2>
+    <!-- 数组语法 -->
+    
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '哈哈', 
+        imgUrl: 'https://pics3.baidu.com/feed/838ba61ea8d3fd1f2bf0e4c088123b1994ca5f35.jpeg?token=90dd3882e3c62bc42b90a8d7f9826273&s=91987C33C75BC0284A7431CA0300A0B1',
+        isActive: true,
+        active: 'active',
+        line: 'line',
+        finalSize: '100px'
+      },
+      methods: {
+        btnClick: function() {
+          this.isActive = !this.isActive;
+        },
+        getClasses: function() {
+          return  {active: this.isActive}
+        }
+      }
+    })
+  </script>
+</body>
+</html>

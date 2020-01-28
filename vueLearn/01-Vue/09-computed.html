@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{a + ' ' + b}}</p>
+    <p>{{getFull()}}</p>
+    <!-- 计算属性 比调用方法更省内存 而且更直观-->
+    <p>{{full}}</p>
+    <h2>总价格: {{totalPrice}}</h2>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        a: 'A',
+        b: 'B',
+        books: [
+        {id: 1, price: 100},
+        {id: 2, price: 130},
+        {id: 3, price: 120},
+        {id: 4, price: 110},
+      ]
+      },
+      computed: { //计算属性
+        full: function() {
+          return this.a + ' ' + this.b
+        },
+        totalPrice: function() {
+          let result = 0;
+          // for (let i = 0; i < this.books.length; i++) {
+          //   result += this.books[i].price
+          // }
+          // for (let i in this.books) {
+          //   result += this.books[i].price
+          // }
+          for (let book of this.books) {
+            result += book.price
+          }
+          return result;
+        }
+      },
+      methods: {
+        getFull: function() {
+          return this.a + ' ' + this.b
+        }
+      }
+    })
+  </script>
+</body>
+</html>
