@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <cpn :number1="num1" :number2="num2" @num1change="change1" @num2change="change2"></cpn>
+  </div>
+  <template id="cpn">
+    <div>
+      <h2>prop  {{number1}}</h2>
+      <h2>data  {{dnumber1}}</h2>
+      <!-- <input type="text" :value="dnumber1" @input="num1Input"> -->
+      <input type="text" v-model="dnumber1">
+      <h2>prop  {{number2}}</h2>
+      <h2>data  {{dnumber2}}</h2>
+      <!-- <input type="text" :value="dnumber2" @input="num2Input"> -->
+      <input type="text" v-model="dnumber2">
+    </div>
+  </template>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        num1: 1,
+        num2: 0
+      },
+      methods: {
+        change1(value) {
+          this.num1 = parseFloat(value)
+        },
+        change2(value) {
+          this.num2 =parseFloat(value)
+        }
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+          props: {
+            number1: Number,
+            number2: Number
+          },
+          data() {
+            return {
+              dnumber1: this.number1,
+              dnumber2: this.number2,
+            }
+          },
+          // methods: {
+          //  num1Input(event) {
+          //    //  将input中value赋值到dnumber1
+          //    this.dnumber1 = event.target.value
+          //   //  发射一个事件，为了让父组件修改值
+          //    this.$emit('num1change',this.dnumber1)
+          //   //  同时修改num2的值
+          //   this.dnumber2 = this.dnumber1 * 100
+          //   this.$emit('num2change',this.dnumber2)
+          //  },
+          //  num2Input(event) {
+          //    this.dnumber2 = event.target.value
+          //    this.$emit('num2change',this.dnumber2)
+
+          //    this.dnumber1 = this.dnumber2 / 100
+          //   this.$emit('num1change',this.dnumber1)
+          //  }
+          // }
+          watch: {
+            dnumber1(newValue) {
+              this.dnumber2 = newValue * 100
+              this.$emit('num1change',this.dnumber2)
+            },
+            dnumber2(newValue) {
+              this.dnumber1 = newValue / 100
+              this.$emit('num2change',this.dnumber1)
+            },
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>

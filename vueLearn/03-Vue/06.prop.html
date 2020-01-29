@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 驼峰标识用 -  -->
+    <cpn :cmovies="movies" :c-message="message"></cpn>
+  </div>
+  <template id="cpn">
+    <div>
+      <h2>{{cMessage}}</h2>
+      <ul>
+        <li v-for="item in cmovies">{{item}}</li>
+      </ul>
+    </div>
+  </template>
+  <script src="../js/vue.js"></script>
+  <script>
+    // 父传子
+    const cpn = {
+      template: '#cpn',
+      // props: ['cmovies', 'cmessaprop']
+      props: {
+        // 可以类型限制，提供默认值
+        cMessage: {
+          type: String,
+          default: 'nonononon',
+          required: true
+        },
+        cmovies: {
+          type: Array,
+          // default: []
+          // 类型是对象或者数组时，默认值必须是一个函数
+          default() {
+            return []
+          }
+        }
+      }
+    }
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello',
+        movies: ['a','b','c','d']
+      },
+      components: {
+        cpn
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <cpn></cpn>
+    <cpn ref="b"></cpn>
+    <cpn ref="a"></cpn>
+    <button @click="btnClick">按钮</button>
+  </div>
+  <template id="cpn">
+    <div>
+      我是子组件
+    </div>
+  </template>
+  <script src="../js/vue.js"></script>
+  <script>
+    
+    const app = new Vue({
+      el: '#app',
+      data: {
+        
+      }, 
+      methods: {
+        btnClick() {
+          // 1. $children
+          // console.log(this.$children)
+          // this.$children[0].showMessage()
+          // 2. $refs => 对象类型   
+          console.log(this.$refs.a)
+        }
+      },
+      components: {
+        cpn : {
+          template: '#cpn',
+          methods: {
+            showMessage() {
+              console.log('showMessage')
+            }
+          }
+        }   
+      }
+    })
+  </script>
+</body>
+</html>

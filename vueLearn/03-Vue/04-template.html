@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 3. 使用组件 -->
+    <cpn></cpn>
+    <cpn></cpn>
+    <cpn></cpn>
+  </div>
+  <!-- script标签 -->
+  <!-- <script type="text/x-template" id="cpnTpl">
+    <div>
+      <h2>我是标题</h2>
+      <p>哈哈哈</p>
+      <p>呵呵呵</p>
+    </div>
+  </script> -->
+  <!-- template -->
+  <template id="cpnTpl">
+    <div>
+      <h2>我是标题{{title}}</h2>
+      <p>哈哈哈</p>
+      <p>呵呵呵</p>
+    </div>
+  </template>
+  <script src="../js/vue.js"></script>
+  <script>
+    // Vue.component('cpn',{
+    //   template: '#cpnTpl'
+    // })
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '哈哈哈'
+      },
+      components: {
+       cpn: {
+        template: '#cpnTpl',
+        data() {
+          return {
+            title: 'abc'
+          }
+        }
+       }
+      }
+    })
+  </script>
+</body>
+</html>
