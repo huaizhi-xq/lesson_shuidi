@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Google Material Design & Flutter </title>
+  <link rel="stylesheet" href="./index.css">
+  <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+  <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+  <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+
+</head>
+<body>
+  <div id="root">
+    <!-- 带有波浪感觉？很好的交互性感觉，手指按下去，晕开来的
+      感觉 android  ripple 波浪-->
+    <!-- <div class="xButton ripple ">按钮</div>
+    <div class="xButton ripple circle">按钮</div>
+    <div class="xButton ripple primary">按钮</div>
+    <div class="xButton ripple warning">按钮</div> -->
+  </div>
+  <script type="text/babel">
+    // 封装一个组件
+    // 页面上有一个root元素  
+    function Button(props) {
+      // console.log(props.children)
+      let { children, type, shape, onClick, block } = props
+      console.log(block)
+      return(
+        <div 
+        onClick = {onClick}
+        className={`xButton ripple ${type} ${shape}  ${block?'block':''} `  }>
+          { children }
+        </div>
+      )
+    }
+    ReactDOM.render( 
+      // 组件
+      <div>
+        <Button>default</Button>
+        <Button type="primary">primary</Button>
+        <Button type="warning">warning</Button>
+        <Button type="warning" block>primary&block</Button>
+        <Button type="warning" shape="circle">circle</Button>
+        <Button onClick={() => {alert('hello')}}>hello</Button>
+      </div>
+      // <Button>按钮</Button> //Button组件
+      // 把css 类名变量 js交互点击  组装到一起的名字交Button El-Button
+      , 
+      document.getElementById('root'))
+  </script>
+</body>
+</html>
