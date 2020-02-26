@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href="#/page1">page1</a>
+  <a href="#/page2">page2</a>
+  <a href="#/page3">page3</a>
+  <a href="#/page4">page4</a>
+  <a href="#/page5">page5</a>
+
+  <div id="container"><p>aa</p></div>
+  
+
+  <script>
+    // window.addEventListener('hashchange', function(event) {
+    //   console.log(event)
+    //   let newURL = event.newURL;
+    //   let oldURL = event.oldURL;
+    //   console.log(newURL,oldURL);
+    //   console.log(window.location.hash)
+    //   // console.log(document.getElementById('container').innerText)
+    //   document.getElementById('container').innerText = window.location.hash
+    // })
+
+    class HashRouter {
+      constructor() {
+        this.routes = {};   //配置  是设计关键点routes
+        window.addEventListener('hashchange', this.load.bind(this),false)
+      }  
+
+      // 用于注册每个视图
+      register(hash,callback = function() {}) {
+        this.routes[hash] = callback;
+      }
+      
+      // 用于注册首页
+      registerIndex(callback = function() {}) {
+        this.routes['index'] = callback;
+      }
+
+      // 处理视图未找到的情况
+      registerNotFound(callback = function() {}) {
+        this.routes['404'] = callback;
+      }
+
+      // 用于调用不同视图的回调函数
+      load() {
+        let hash = location.hash.slice(1);
+        console.log(hash);
+        let handler;
+        // 没有hash 默认为首页
+        if (!hash) {
+          handler = this.routes.index;
+        } else {
+          handler = this.routes[hash];
+        }
+        // 执行注册的回调函数
+        handler.call(this);
+      }
+    }
+
+    let router = new HashRouter();
+    let container = document.getElementById('container');
+
+    // 注册首页回调函数
+    router.registerIndex(() => container.innerHTML = '我是首页');
+
+    // 注册其他视图的回调函数
+    router.register('/page1', () => container.innerHTML = '我是page1');
+    router.register('/page2', () => container.innerHTML = '我是page2');
+    router.register('/page3', () => container.innerHTML = '我是page3');
+
+    // 加载视图
+    router.load();
+
+    // console.log(router.routes);
+  </script>
+</body>
+</html>
