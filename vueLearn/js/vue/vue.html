@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="app">
+
+  </div>
+
+  <script src="./render.js"></script>
+  <script>
+    const obj = {  //模拟数据
+      name: '张三',
+      age: '18',
+      sex: '男'
+    }
+
+   
+    // 发布订阅者模式
+    class Dep {
+      constructor() {
+        this.subs = []
+      }
+        
+      addSub(watch) { //添加订阅方法
+        this.subs.push(watch)
+      }
+
+      notify() { //通知订阅者更新
+        this.subs.forEach(item => {
+          item.update();
+        })
+      }
+    }
+    class Watch { 
+      constructor(name) {
+        this.name = name;
+      }
+      update() {
+        console.log(this.name + 'update')
+        //更新视图
+        document.getElementById('app').innerHTML = render(template,obj)  
+      }
+    }
+    
+    Object.keys(obj).forEach(key => {  //遍历obj对象
+      let dep = new Dep; //创建发布者对象
+      let value = obj[key];
+      Object.defineProperty(obj, key, {//监听数据
+        set: function(newValue) {
+          console.log( '数据' +  key + '改变了')
+          // 更新数据
+          value = newValue
+          dep.notify() //通知订阅者更新
+          
+        },
+        get: function() {
+          console.log('数据' + key + '加入了响应式系统')
+          let w = new Watch(value)
+          dep.addSub(w); 
+          return value
+        }
+      })
+    })
+
+    obj.message = "没用的"
+    //待编译的模板
+    var template = '我是{{name}}, {{name}}  年龄 {{age}},性别 {{sex}}   {{message}} '
+    document.getElementById('app').innerHTML = render(template,obj);
+
+  </script>
+
+</body>
+</html>
