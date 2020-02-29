@@ -20,6 +20,17 @@ var inorderTraversal = function(root) {
       res.push(root.val)
     }
   }
+  // cur = root;
+  // while(stack.left > 0 || cur !=null) {
+  //   if (cur != null) {
+  //     stack.push(cur);
+  //     cur = cur.left
+  //   } else {
+  //     cur = stack.pop();
+  //     res.push(cur.val)
+  //     cur = cur.right
+  //   }
+  // }
 
   return res
 }
