@@ -4,6 +4,7 @@ import "github.com/gin-gonic/gin" //安装了gin web 框架
 
 func main() {
 	// 上传文件
+
 	// router := gin.Default() // 返回咱由对象
 	// //context req + res koa  ctx
 	// router.POST("/upload", func(c *gin.Context) {

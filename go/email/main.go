@@ -8,6 +8,7 @@ import (
 )
 
 func main() { // 入口函数s
+
 	e := email.NewEmail() // := 定义并且附值
 	e.From = "shunwuyu <754211506@qq.com>"
 	// [] ? Array? 多个用户发邮件 { }集合
