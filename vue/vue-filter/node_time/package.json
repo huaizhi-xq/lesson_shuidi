@@ -1,0 +1,15 @@
+{
+  "name": "node_time",
+  "version": "1.0.0",
+  "description": "时间处理在后台时\r 数据存储 mongodb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^5.9.3"
+  }
+}
