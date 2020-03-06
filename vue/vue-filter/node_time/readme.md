@@ -50,8 +50,20 @@ $group group by
 group by
 
 2019年 第一季度 已完成订单的订单总金额和订单总数
-db.orders.aggregate([ {  
-   $match: {     status: "completed",     orderDate: {       $gte: ISODate("2019-01-01"),       $lt: ISODate("2019-04-01")     }   } }, 
+db.orders.aggregate([ 
+   {  $match: {     status: "completed",     orderDate: {       $gte: ISODate("2019-01-01"),       $lt: ISODate("2019-04-01")     }   } }, 
    {   $group: {     _id: null,     total: { $sum: "$total"},     shippingFee: { $sum: "$shippingFee"},     count: {$sum: 1}   } }, 
-   {   $project: {     grandTotal: {       $add: ["$total", "$shippingFee"]     },     count: 1,     _id: 0   } 
-   } ]);
+   {   $project: {     grandTotal: {       $add: ["$total", "$shippingFee"]     },     count: 1,     _id: 0   } } 
+   ]);
+
+
+time  mongodb 还会有什么？
+
+
+todo 活动 activity  开始日期  结束时日期 time
+
+
+db.todos.find({}).pretty()  格式化输出
+
+给字符串时间  也可以给时间戳  都会转换为ISODate存储
+
