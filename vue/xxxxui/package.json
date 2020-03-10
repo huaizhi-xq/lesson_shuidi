@@ -1,0 +1,27 @@
+{
+  "name": "@ziogie/xxxxui",
+  "version": "0.2.0",
+  "description": "设计的第一个vue框架",
+  "keywords": [
+    "components",
+    "vue-template",
+    "vue"
+  ],
+  "homepage": "https://github.com/wsdmzy",
+  "license": "MIT",
+  "main": "lib/xxxxui.umd.min.js",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lib": "vue-cli-service build --target lib --name xxxxui --dest lib packages/index.js"
+  },
+  "dependencies": {
+    "core-js": "^3.6.4",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.2.0",
+    "@vue/cli-service": "~4.2.0",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
