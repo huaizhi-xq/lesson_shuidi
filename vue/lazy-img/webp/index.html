@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <img width="225" height="225"
+   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAklEQVR4AewaftIAAAEfSURBVE3BzytDAQDA8e9ez9pmNjOTvdSSOTjsIKXVIndJLso/YLn6D+QqJy5uyoSclsuUolgsP5JCMj/LrN4cZt687T3PW+3V+3wchgmTrmkcpNK83uVpcTqZmJshGO7CImKqqwpvp7vsr66Tv/mi4WQnw9JxCn9ngAYBU+k2g1J6ZCDmo2rUMDCQC0U2FlawiJgC0RFye2mOLovEpoaID8c5z14gfxSxiJhkWeHhJYxWeWY2OY3L70N1wGAigUXE1B7qYH5tkeutbX7PnqhJQcYmx5F6I1gETK1eLwYQGo3SHZHw/jnwKBXsBJoMXSd/mKOq1fG4XZTfC9gJNP3IJe6XN3EiYKh12nok7ESa/FKY5FUWtfCJXv7G3d+H3T8ZAWlgm+m6CgAAAABJRU5ErkJggg== " 
+   alt="" data-src="/in.png" class="lazyload">
+  <script>
+    window.onload = function() {
+      const img = document.querySelector('.lazyload')
+      const real_src = img.getAttribute('data-src')
+      const oImg = document.createElement('img')
+      oImg.src = real_src
+      oImg.onload = function() {
+        // setTimeout(() => {
+          img.src = real_src
+        // }, 3000)
+      }
+    }
+  </script>
+</body>
+</html>
