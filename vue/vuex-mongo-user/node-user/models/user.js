@@ -14,53 +14,14 @@ const userSchema = new Schema({
     }
   },
   "tags": [
-    {type: String}
+    {type: String, index: true}   //index 添加索引
   ],
   "name": {type: String}
 })
 
+// userSchema
+
 const User = mongoose.model('User', userSchema)
 
-// User.create({
-
-
-//   "address": {
-//     "city": "江西",
-//     "state": "南昌",
-//     "pincode": "123000"
-//   },
-//   "tags": [
-//     "coding",
-//     "palying",
-   
-//   ],
-//   "name": "小明"
-// },
-//  {
-//   "address": {
-//     "city": "江西",
-//     "state": "宜春",
-//     "pincode": "123111"
-//   },
-//   "tags": [
-//     "coding",
-//     "swim",
-   
-//   ],
-//   "name": "小红"
-// },
-// {
-//   "address": {
-//     "city": "江西",
-//     "state": "丰城",
-//     "pincode": "12322"
-//   },
-//   "tags": [
-//     "coding",
-//     "games",
-   
-//   ],
-//   "name": "张三"
-// })
 
 module.exports = User
