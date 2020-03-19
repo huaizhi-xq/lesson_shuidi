@@ -10,11 +10,15 @@ var longestPalindrome = function(s) {
       temp[item] = 1
     }
   })
-  const keys = Object.keys(temp)
-  if(keys.some(key => temp[key] === 1)) {
-    console.log('+++')
-    count += 1
+  // const keys = Object.keys(temp)
+  // if(keys.some(key => temp[key] === 1)) {
+  //   console.log('+++')
+  //   count += 1
+  // }
+  if (count !== s.length) {
+    return count +1
   }
+
   return count
 }
 
