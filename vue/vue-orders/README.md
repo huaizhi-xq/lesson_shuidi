@@ -45,3 +45,7 @@ el-pagination 分页器
   数据库  mock 本地数据库
   开发业务mock概念
   
+  
+  vue  .sync 语法
+    el-pageination   current-page.sync  
+    父组件 data =>  props 

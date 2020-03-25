@@ -8,10 +8,19 @@
 
   <h1>订单管理</h1>
   <!-- el-form -->
+  <div>
+    <el-input v-model="listQuery.title" placeholder="Title" 
+      style="width:200px;" class="filter-item"
+      @keyup.enter.native="getList">
+
+    </el-input>
+  </div>
+
   <el-table
     v-loading="listLoading"  
     :data="list"
     >
+    <!-- <el-table-cloumn></el-table-cloumn> -->
     <el-table-column label="ID" prop="_id" align="center" width="80" >
       <template slot-scope="{row}">
         <span >{{row._id}}</span>
@@ -19,7 +28,8 @@
     </el-table-column>
     <el-table-column label="Name" prop="name" align="center" width="200" >
       <template slot-scope="{row}">
-        <span >{{row.name}}</span>
+        <!-- <span >{{row.name}}</span> -->
+        <span >{{row.title}}</span>
       </template>
     </el-table-column>
     <el-table-column label="OrderDate" prop="orderDate" align="center" width="400" >
@@ -43,13 +53,21 @@
       </template>
     </el-table-column>
   </el-table>
-  <el-pagination
+  <!-- <el-pagination
     :total="page.total"
     :pageSize="page.limit"
     :current-page.sync="page.page"
     layout="total,prev, pager, next"
     @current-change="handleCurrentChange"
     >
+  </el-pagination> -->
+
+  <!-- 优化 -->
+  <el-pagination :total="total" :page-size="listQuery.limit"
+    layout="total,prev, pager, next" :current-page.sync="listQuery.page"
+     @current-change="getList"
+    >
+
   </el-pagination>
   </div>
 </template>
@@ -65,11 +83,22 @@ export default {
         limit: 20,
       },
       listLoading: true,  //加载数据中
-      list: []
+      list: [],
+
+
+      listQuery: {
+        limit: 20,
+        page: 1,
+        title: ''
+      },
+      total: 0
     }
   },
+  created() {
+    this.getList()
+  },
   mounted() {
-    this.getData(this.page)
+    // this.getData(this.page)
   },
   methods: {
     handleCurrentChange(page) {
@@ -94,8 +123,26 @@ export default {
       })
       // axios.get('/api/orders?page=1')
       
+    },
+
+    //get请求
+    getList() {
+      this.listLoading = true
+      axios.get('/api/article/list', {
+        params: this.listQuery
+      })
+        .then(res => {
+          console.log(res)
+          this.list = res.data.list
+          this.total = res.data.total
+          // console.log(this.list)
+          this.listLoading = false
+        })
     }
   }
+
+
+
 }
 </script>  
 
