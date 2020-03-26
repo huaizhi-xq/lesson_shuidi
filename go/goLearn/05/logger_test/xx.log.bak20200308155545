@@ -1,0 +1,14 @@
+[2020-03-08 15:55:39] [INFO] [main.go:main:17] 这是一条Info日志
+[2020-03-08 15:55:39] [WARNING] [main.go:main:18] 这是一条Warning日志
+[2020-03-08 15:55:39] [ERROR] [main.go:main:21] 这是一条Error日志1111aasd
+[2020-03-08 15:55:39] [FATAL] [main.go:main:22] 这是一条Fatal日志
+[2020-03-08 15:55:41] [INFO] [main.go:main:17] 这是一条Info日志
+[2020-03-08 15:55:41] [WARNING] [main.go:main:18] 这是一条Warning日志
+[2020-03-08 15:55:41] [ERROR] [main.go:main:21] 这是一条Error日志1111aasd
+[2020-03-08 15:55:41] [FATAL] [main.go:main:22] 这是一条Fatal日志
+[2020-03-08 15:55:43] [INFO] [main.go:main:17] 这是一条Info日志
+[2020-03-08 15:55:43] [WARNING] [main.go:main:18] 这是一条Warning日志
+[2020-03-08 15:55:43] [ERROR] [main.go:main:21] 这是一条Error日志1111aasd
+[2020-03-08 15:55:43] [FATAL] [main.go:main:22] 这是一条Fatal日志
+[2020-03-08 15:55:45] [INFO] [main.go:main:17] 这是一条Info日志
+[2020-03-08 15:55:45] [WARNING] [main.go:main:18] 这是一条Warning日志
