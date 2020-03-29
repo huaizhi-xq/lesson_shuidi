@@ -26,20 +26,20 @@ func maxDistance(grid [][]int) int {
 		for _,v := range temp {
 			i := val.x
 			j := val.y
-			if i-1 >= 0 && land[i-1][j] == 0 {
-				land[i-1][j] = 1
+			if i-1 >= 0 && grid[i-1][j] == 0 {
+				grid[i-1][j] = 1
 				land = append(land,&point{x:i-1,y:j})
 			}
-			if i+1<len(land) && land[i+1][j] == 0 {
-					land[i+1][j] = 1
+			if i+1<len(grid) && grid[i+1][j] == 0 {
+					grid[i+1][j] = 1
 					land = append(land,&point{x:i+1,y:j})
 			}
-			if j-1>=0 && land[i][j-1] == 0 {
-					land[i][j-1] = 1
+			if j-1>=0 && grid[i][j-1] == 0 {
+					grid[i][j-1] = 1
 					land = append(land,&point{x:i,y:j-1})
 			}
-			if j+1<len(land[0]) && land[i][j+1] == 0 {
-					land[i][j+1] = 1
+			if j+1<len(grid[0]) && grid[i][j+1] == 0 {
+					grid[i][j+1] = 1
 					land = append(land,&point{x:i,y:j+1})
 			}
 		}
