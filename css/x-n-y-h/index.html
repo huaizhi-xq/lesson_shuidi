@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=.3, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      border: 1px solid red;
+    }
+    .box1 {
+      /* 2. 把这个元素提升为独立的一层 */
+      /* will-change: transform; */
+      /* transform: translate3d(0,0,0); */
+      z-index: 9;  /*不会提升*/
+    }
+    .box2 {
+      /* 1. translate3d把这个元素提升为独立的一层 */
+      transform: translate3d(0,0,0);
+    }
+
+    /* css规则很多  经验 */
+  </style>
+</head>
+<body>
+  <div class="box box1">
+    box1
+  </div>
+  <div class="box box2">
+    box2
+  </div>
+  <script>
+    const box = document.querySelector('.box')
+    setTimeout(() => {
+      // box.style.transform = 'translate3d(60px,0,0)'
+    }, 3000)
+  </script>
+</body>
+</html>
