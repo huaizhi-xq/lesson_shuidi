@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=c06vew5ggEyTSbS763qYMRNfI24RbEQd"></script> -->
+</head>
+<body>
+  <h1>aa</h1>
+
+
+  <script >
+   window.onload = function() {
+    function getLocation() {
+      // is  浏览器嗅探  支持lbs功能
+      if (navigator.geolocation) {  //h5 localStorage
+        navigator.geolocation.getCurrentPosition(showPostion, showError,{
+          // 指示浏览器获取高精度的位置，默认为false
+          enableHighAccuracy: true,
+          // 指定获取地理位置的超时时间，默认不限时，单位为毫秒
+          timeout: 5000,
+          // 最长有效期，在重复获取地理位置时，此参数指定多久再次获取位置。
+          maximumAge: 3000
+    });
+      }
+    }
+
+    var options = {
+
+    enableHighAccuracy: true,//是否获取更精确的位置
+
+    timeout: 6000,//请求超时时间,单位ms；
+
+    }
+
+    function showPostion(position) {
+      console.log(position)
+    }
+
+    // 关了定位功能  或不支持
+    function showError(err) {
+      console.log(err)
+    }
+
+    getLocation()
+    // const l = '115',
+    //       r = '28'  //获得 h5 lbs
+
+    // const kfcl = '116',
+    //       kfcr = '27'
+
+    // const map = new BMap.Map()
+    // const pointA = new BMap.Point(l,r)
+    // const pointB = new BMap.Point(kfcl, kfcr)
+    // console.log(map.getDistance(pointA, pointB).toFixed(2) + '米')
+   }
+  </script>
+</body>
+</html>
