@@ -1,4 +1,5 @@
-module.exports = function() {
+module.exports = function({ version }) {
+  // console.log(version, 'babel.js')
   return {
     'presets': [
       [
@@ -11,7 +12,17 @@ module.exports = function() {
             safari: 8
           }
         }
+      ],
+      [
+        // .ts  .tsx
+        '@babel/preset-typescript',  
+        {
+          allExtensions: true
+        }
       ]
+    ],
+    plugins: [
+      '@babel/plugin-transform-typescript'
     ]
   }
 }
