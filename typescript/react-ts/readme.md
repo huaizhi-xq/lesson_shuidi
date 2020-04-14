@@ -10,8 +10,8 @@ webpack 编译  nginx  docker  阿里云 build
 重新加载改变的部分--hot   局部更新   不丢失状态 MVVM
 
 2. hash是什么
-文件指纹 版本  app.js demo.css  [hash]
-静态文件会缓存 app.[hash].js?1231231(版本号) old new 
+文件指纹 版本  app.js demo.css  [hash] 
+静态文件会缓存 app.[hash].js?1231231(版本号) old new  上线
 
 3. babelrc presets env modules 干嘛？
   modules 指定何种形式的模块，设置为false表示不转码模块
@@ -23,6 +23,12 @@ webpack 编译  nginx  docker  阿里云 build
   entry 可以有多个打包的入口吗  为什么
   vendor 库  vue.js vuex vue-router
   提升了编译速度，同时保障及改善了用户的浏览体验  缓存
+
+5. tsx在工作流是如何完成编译支持的？
+  resolve.extendsions tsx -> module test .tsx? -> awesome-typescript-loader -> tsconfig.json  jsx -> react -> babel
+
+- dist 目录不删除再生成？ 历史版本都留下， 利于回滚代码
+
 
 html压缩
 版本管理

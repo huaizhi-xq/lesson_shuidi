@@ -7,16 +7,17 @@ const basePath = __dirname;
 module.exports = {
  context: path.join(basePath, 'src'), //上下文环境
  resolve: { //帮处理那些静态文件
-   extensions: ['.js', '.ts'],
+   extensions: ['.js', '.ts', '.tsx'],
  },
  entry: { //webpack 打包入口可以多个
-   app: './index.ts', 
+   app: './index.tsx', 
    vendorStyles: [ //bootstrap css框架   vue   业务代码在改变 但是框架要被打包，但是不会被修改，单独打包
      '../node_modules/bootstrap/dist/css/bootstrap.css',
    ],
-   vendorReact: [
-     "../node_modules/react",
-     "../node_modules/react-dom"
+   vendor: [
+     "react",
+     "react-dom",
+     "react-router-dom",
    ]
  },
  output: {
@@ -26,7 +27,7 @@ module.exports = {
  module: {
    rules: [
      {
-       test: /\.ts$/,
+       test: /\.tsx?$/,
        exclude: /node_modules/,
        loader: 'awesome-typescript-loader',
        options: {
