@@ -1,0 +1,6 @@
+body {
+  /* @import "./main.styl"; */
+  text-align: center;
+  /* background-color: green; */
+  background: url("../img/dlam.jpg")  no-repeat;
+}
