@@ -32,3 +32,11 @@ webpack 编译  nginx  docker  阿里云 build
 
 html压缩
 版本管理
+
+
+- react 语法  ts  
+  router + redux + api  类型约束  
+- <{}> 
+  1. App AppRouter  引入的 /组件， 类型定义  header  html  StatelessComponent
+  2. React.StatelessComponent<{}> type 声明的类型 定义文件node_modules/@types/index.d.ts  类型定义 ts的难点
+- bootstrap entry 多入口
