@@ -84,8 +84,8 @@ ok
 
 ```js
 浏览器得到 响应报文：
-HTTP/1.1 200 OK
-Date: Mon, 11 May 2020 12:52:48 GMT
+HTTP/1.1 200 OK    (\r\n )                          -> status-line
+Date: Mon, 11 May 2020 12:52:48 GMT                 ->
 Connection: keep-alive
 
 10： 长度
@@ -97,5 +97,6 @@ Connection: keep-alive
 // 后面没内容了
 ```
 
+状态机
 
 
