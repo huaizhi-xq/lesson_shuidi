@@ -1,0 +1,15 @@
+{
+  "name": "learn-electron",
+  "version": "1.0.0",
+  "description": "electron 是js在exe的应用，  前端效率部，开发工具非常又帮助\r 跨平台  全端  RN Flutter Electron",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^9.0.0"
+  }
+}
