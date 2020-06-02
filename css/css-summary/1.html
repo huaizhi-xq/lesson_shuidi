@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* selctor 选择器 */
+    * {
+      /* key value */
+      margin: 0; 
+      /* 变量 */
+      --main-color: red;
+    }
+    /* 选择器组 */
+    div,
+    #id {
+      padding: 0;
+    }
+    /* 复合选择器,同时命中 */
+    div#id {
+      padding: 0;
+    }
+    /*  复杂选择器 +兄弟元素  > 直接子元素 空格 所有子元素  */
+    /* div#id + span {} */
+    .box {
+      width: 50px;
+    }
+    /* .box div + div::before {
+      content: '|';
+    } */
+    .box div:not(:last-child)::after {
+      /* border-right: 1px solid red; */
+      content: '|';
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    文章 文章 文章
+    文章 文章 文章
+    文章 文章 文章
+    文章 文章 文章
+    文章 文章 文章
+    文章 文章 文章
+    文章 文章 文章
+    文章 文章 文章
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+  <div id="id">
+    <span></span>
+    <div>
+      <span></span>
+    </div>
+  </div>
+  <span></span>
+  <script>
+    
+    const dom = document.querySelectorAll('.box,#id')
+    console.log(dom)
+  </script>
+</body>
+</html>
