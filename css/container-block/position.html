@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .out {
+      position: relative; width: 200px;height: 200px; border: 1px solid #000;
+    }
+    .inner1 {
+      width: 80px;height: 80px; background-color: red; 
+      transform: translate3d(0, 0, 0);   /*包含块*/
+    }
+    .inner {
+      width: 40px;height: 40px;
+      background-color: aqua; position: fixed;
+      left: 0;top: 0;
+    }
+    </style>
+</head>
+<body>
+  <div class="out">
+    out
+    <!-- inner1 是包含块 -->
+    <div class="inner1">
+      <!-- inner计算位置  相对包含块来计算的 -->
+      <div class="inner">
+        inner
+      </div>
+    </div>
+  </div>
+</body>
+</html>
