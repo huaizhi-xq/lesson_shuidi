@@ -21,6 +21,20 @@ PC端扫码登陆方案，并需要传递哪些信息？
 
 
 
-1. node 插入一条qrcode记录， {qrcode_id， expires_at,create_at}, 生成一个二维码
+1. node 插入一条qrcode记录， {qrcode_id， expires_at,create_at}, qrcode生成一个二维码
 2. PC端登录页 二维码显示出来
-3. 扫码 得到 qrcodeId  使用postman来模拟
+3. 扫码 得到 qrcodeId  同时锁定二维码状态扫码中
+4. 手机端 已登陆状态,扫码得到信息结合token发送至服务端
+  - 注册 -> 登陆 jwt token   手机准备好了
+5. 服务端返回用户信息给手机端,等待用户点确认授权,确认后给服务端反馈,状态改为成功
+  手机端 token 访问/qrcode/scanned
+6. pc端轮询 判断二维码的状态(扫码?授权?成功?)
+7. 成功后跳转至首页,服务器端传来的token存入localstroge
+
+
+
+
+
+
+
+
