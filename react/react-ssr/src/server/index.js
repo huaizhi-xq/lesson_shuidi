@@ -5,6 +5,9 @@ import React from 'react';
 // 服务端 字符串  客户端dom   谁提供？虚拟DOM
 import { renderToString } from 'react-dom/server'
 import Header from '../components/Header.jsx'
+import { StaticRouter } from 'react-router-dom'
+import Routes from '../Routes'
+import { renderRoutes } from 'react-router-config'
 
 const app = express()
 // static目录做了一个静态资源映射
@@ -13,7 +16,11 @@ app.use(express.static('static'))
 // ejs jsp jade vue-template
 app.get('*', (req, res) => {
   // 入口组件 jsx  
-  const App = (<Header/>)
+  const App = (
+    <StaticRouter location={req.url} >
+      { renderRoutes(Routes) }
+    </StaticRouter>
+  )
   // jsx -> babel -> React.createElement()
   const htmlStr = renderToString(App)
   console.log(htmlStr)
